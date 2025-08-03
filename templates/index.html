@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Flask S3 RDS Demo{% endblock %}
+
+{% block header %}Welcome to Flask S3 RDS Demo{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2>A Simple Demo Application</h2>
+    <p>This application demonstrates:</p>
+    <ul style="text-align: left; display: inline-block;">
+        <li>User registration and authentication with PostgreSQL RDS</li>
+        <li>File upload and storage to AWS S3</li>
+        <li>Basic Flask web application structure</li>
+        <li>AWS services integration</li>
+    </ul>
+    
+    <div style="margin-top: 30px;">
+        <a href="{{ url_for('signup') }}" style="margin-right: 20px;">
+            <button>Get Started - Sign Up</button>
+        </a>
+        <a href="{{ url_for('login') }}">
+            <button style="background-color: #6c757d;">Login</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

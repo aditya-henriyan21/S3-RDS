@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Flask S3 RDS Demo{% endblock %}
+
+{% block header %}Welcome, {{ session.username }}!{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <h2>Your Dashboard</h2>
+    <p>Manage your files and account from here.</p>
+    
+    <div style="margin: 20px 0;">
+        <a href="{{ url_for('upload_file') }}">
+            <button>Upload New File</button>
+        </a>
+    </div>
+</div>
+
+<div class="upload-list">
+    <h3>Your Uploaded Files</h3>
+    {% if uploads %}
+        {% for upload in uploads %}
+        <div class="upload-item">
+            <strong>{{ upload[0] }}</strong>
+            <span style="float: right; color: #666;">{{ upload[1].strftime('%Y-%m-%d %H:%M') }}</span>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; color: #666; font-style: italic;">
+            No files uploaded yet. <a href="{{ url_for('upload_file') }}">Upload your first file!</a>
+        </p>
+    {% endif %}
+</div>
+{% endblock %}

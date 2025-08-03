@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Upload File - Flask S3 RDS Demo{% endblock %}
+
+{% block header %}Upload File to S3{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <p>Select a file to upload to your AWS S3 bucket.</p>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Choose File:</label>
+        <input type="file" id="file" name="file" required>
+    </div>
+    
+    <div style="text-align: center;">
+        <button type="submit">Upload File</button>
+    </div>
+</form>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+</div>
+
+<div style="margin-top: 30px; padding: 15px; background-color: #e9ecef; border-radius: 5px;">
+    <h4>Upload Guidelines:</h4>
+    <ul style="text-align: left;">
+        <li>Files are stored securely in your AWS S3 bucket</li>
+        <li>Each file gets a unique identifier to prevent conflicts</li>
+        <li>Upload history is tracked in your dashboard</li>
+        <li>This is a demo app - avoid uploading sensitive files</li>
+    </ul>
+</div>
+{% endblock %}
